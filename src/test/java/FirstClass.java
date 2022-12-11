@@ -13,7 +13,6 @@ public class FirstClass {
         // 3.Now that we created webdriver, we can automate web application
         driver.get("https://www.techproeducation.com");
 
-
-
+        driver.quit();
     }
 }
