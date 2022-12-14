@@ -28,15 +28,11 @@ public class Day03_Assertions {
 
         Assert.assertEquals("java", "java");
         Assert.assertEquals("java".contains("j"), true);
-
         Assert.assertTrue("java".contains("j"));
-
         Assert.assertFalse("Java".contains("j"));
 
         // Test Execution stops if one the assertion fails. This is called HARD ASSERTION
-
         // Test Execution continues even if test verification fails. Verification means like if statement
-
         // What is difference between Assertion and Verification
         // Assertion stops after assertion fails. Verification continues even after verification fails.
         // Junit assertions are hard assertion. If statement is verification

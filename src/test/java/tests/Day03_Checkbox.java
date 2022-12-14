@@ -9,15 +9,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.time.Duration;
 
 public class Day03_Checkbox {
-
     WebDriver driver;
-
     @Before
     public void setUp(){
+
         // user goes to https://testcenter.techproeducation.com/index.php?page=checkboxes
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
