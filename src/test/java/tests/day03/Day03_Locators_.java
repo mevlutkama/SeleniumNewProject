@@ -46,14 +46,22 @@ public class Day03_Locators_ {
         // Enter below username and password then click on login button
         //                Username :  Admin
         //                Password :  admin123
+
         usernameTextBox.sendKeys("Admin");
         passwordTextBox.sendKeys("admin123");
         loginButton.click();
 
         // Assert the login is successful
+        // 1. We can use page url to do assertion
+        // 2. We can use a specific element for the page for assertion
+
         // https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index ==> Current Url
         boolean actualValue = driver.getCurrentUrl().contains("dashboard");
         assertTrue(actualValue);
+
+        // Note: We do not need to use containers for web elements. We can use method chain for actions.
+        // driver.findElement(By.name("username")).sendKeys("Admin");
+        // driver.findElement(By.tagName("button")).click();
     }
 
     @After

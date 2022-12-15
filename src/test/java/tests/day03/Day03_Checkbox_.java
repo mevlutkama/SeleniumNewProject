@@ -34,18 +34,20 @@ public class Day03_Checkbox_ {
     }
 
     @Test
-    public void checkBoxTest(){
+    public void checkBoxTest() throws InterruptedException {
 
         // Locationg checkbox 1 and checkbox2
         WebElement checkBox1 = driver.findElement(By.id("box1"));
         WebElement checkBox2 = driver.findElement(By.id("box2"));
 
         // Click on the checkbox 1 if it is NOT already selected
-        if (!checkBox1.isSelected()){
+        Thread.sleep(2000);// This is going to wait 3 seconds in every scenario
+        if (!checkBox1.isSelected()){// isSelected() method return true if it was selected before.
             checkBox1.click();
         }
 
         // Click on the checkbox 2 if it is NOT already selected
+        Thread.sleep(2000);// Hard wait ==> Java wait
         if (!checkBox2.isSelected()){
             checkBox2.click();
         }
