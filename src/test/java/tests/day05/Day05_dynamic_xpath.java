@@ -1,6 +1,7 @@
 package tests.day05;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -47,5 +48,10 @@ public class Day05_dynamic_xpath {
         // 3.xpath = //*[contains(text(), 'partial or full text of the element'
         WebElement passwordText1 = driver.findElement(By.xpath("//*[contains(text(),'Passw')]"));// accepts partial text
         Assert.assertTrue(passwordText1.isDisplayed());
+    }
+
+    @After
+    public void tearDown(){
+        driver.quit();
     }
 }
