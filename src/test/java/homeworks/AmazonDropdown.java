@@ -28,7 +28,7 @@ public class AmazonDropdown {
         driver.manage().window().maximize();
 
         // Go to https://www.amazon.com/
-        driver.get("https://www.amazon.com/tr");
+        driver.get("https://www.amazon.com/");
     }
 
     // Create A Method dropdownTest
