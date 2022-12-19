@@ -23,6 +23,7 @@ public class Day07_Alerts extends TestBase {
         driver.switchTo().alert().accept();
         Thread.sleep(2000);
 
+
         // and Verify "You successfully clicked an alert"
         String actualResult = driver.findElement(By.id("result")).getText();
         Assert.assertEquals("You successfully clicked an alert",actualResult);
