@@ -35,8 +35,8 @@ public class Day09_Cookies extends TestBase {
 
         // 4.Add new cookie
         Cookie cookie = new Cookie("my-favourite-cookie", "apple-pie");
-
         driver.manage().addCookie(cookie);
+
         Thread.sleep(2000);
         Set<Cookie> newCookies = driver.manage().getCookies();
         System.out.println("New Number of Cookies ===>>> " + newCookies.size());// 1 more than original number of cookie
