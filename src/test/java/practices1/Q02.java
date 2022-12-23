@@ -1,9 +1,7 @@
-package practices;
+package practices1;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.time.Duration;
 
 public class Q02 {
     //  ...Practice 2...
