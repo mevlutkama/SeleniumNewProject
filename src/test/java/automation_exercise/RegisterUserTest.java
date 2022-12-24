@@ -1,4 +1,4 @@
-package firstclass;
+package automation_exercise;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -48,8 +48,8 @@ public class RegisterUserTest extends TestBase {
         assertTrue(isDisplayed2);
 
         // Enter name and email address
-        driver.findElement(By.xpath("//input[@name='name']")).sendKeys("marcel poitierqrty");
-        driver.findElement(By.xpath("(//input[@name='email'])[2]")).sendKeys("marcelqrty@hotmail.com");
+        driver.findElement(By.xpath("//input[@name='name']")).sendKeys("marcel poitierqrtyk");
+        driver.findElement(By.xpath("(//input[@name='email'])[2]")).sendKeys("marcelqrtyk@hotmail.com");
 
         // Click 'Signup' button
         driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click();
