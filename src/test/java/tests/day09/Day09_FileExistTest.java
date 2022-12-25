@@ -7,7 +7,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class Day09_FileExistTest {
-
     @Test
     public void isExistTest() {
         String userDIR = System.getProperty("user.dir");// ==> gives the path of the current folder
