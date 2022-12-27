@@ -63,7 +63,7 @@ public class Day04_xpath_css {
         * --- I also sometimes create dynamic xpath. Because some elements do not have stable attributes like id and name.
         * --- And I can write xpath for any element.
         * --- I sometimes even use css selector instead of xpath. But I personally use xpath more than css
-        * What is difference between xpath and css selector?
+        * What is difference between absolute xpath and relative xpath?
         * --- Absolute xpath we start from the parent and go child elements one by one
         * --- Absolute xpath use /
         * --- Absolute xpath may easily be broken when a new element is added on the page.
