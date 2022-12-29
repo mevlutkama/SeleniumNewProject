@@ -5,10 +5,7 @@ import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.File;
@@ -62,10 +59,29 @@ public abstract class TestBase {
         // 1.Step: Take screenshot using getScreenshotAs() method and takeScreenshot API coming from selenium
         File image = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 
-        // 2.Step: Save the screenshot in a path and save with dynamic name
+        // 2.Step: Creating a path and dynamic name for the image
         String currentTime = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());// getting the current local date
+
+        // Path is where we save the screenshot. Project/Folder/Folder/Name of Image  . png
         String path = System.getProperty("user.dir") + "/test-output/Screenshots/" + currentTime + ".png"; // Where we save the image
 
+        // 3.Step: Saving the image in the path
+        FileUtils.copyFile(image,new File(path));
+    }
+
+    // Take screenshot of specific element
+    public void takeScreenshotOfTheElement(WebElement element) throws IOException {
+
+        // 1.Step: Take screenshot
+        File image = element.getScreenshotAs(OutputType.FILE);
+
+        // 2.Step: Create a dynamic path
+        String currentTime = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());// getting the current local date
+
+        // Path is where we save the screenshot. Project/Folder/Folder/Name of Image  . png
+        String path = System.getProperty("user.dir") + "/test-output/Screenshots/" + currentTime + ".png"; // Where we save the image
+
+        // 3.Step: Saving the image in the path
         FileUtils.copyFile(image,new File(path));
     }
 }

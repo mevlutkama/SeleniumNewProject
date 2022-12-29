@@ -14,7 +14,6 @@ public class Day10_ScreenshotsOfEntirePage extends TestBase {
         // Given user search for 'uni'
         driver.get("https://testcenter.techproeducation.com/index.php?page=autocomplete");
 
-        Thread.sleep(3000);
         // Take a screenshot. Create a reusable method and call that method
         takeScreenshotOfPage();
 
