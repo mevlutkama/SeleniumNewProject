@@ -25,6 +25,7 @@ public class Q10 extends TestBase {
         driver.get("https://demo.guru99.com/test/drag_drop.html");
 
         // Drag orange elements on proper boxes below them
+        // Locate sources and targets web elements:
         WebElement bank = driver.findElement(By.id("credit2"));
         WebElement debitAccount = driver.findElement(By.id("bank"));
 
