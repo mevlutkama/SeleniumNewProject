@@ -77,5 +77,6 @@ public class Day12_WebTables extends TestBase {
     public void printDataTest(){
         printData(2,3);// jsmith@gmail.com
         printData(4,1);// Conway
+        printData(3,3);
     }
 }
