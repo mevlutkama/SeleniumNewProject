@@ -26,8 +26,8 @@ public abstract class TestBase {
     }
 
     @After
-    public void tearDown() throws InterruptedException {
-        Thread.sleep(3000);
+    public void tearDown()  {
+        waitFor(3);
         driver.quit();
     }
 
@@ -83,6 +83,101 @@ public abstract class TestBase {
 
         // 3.Step: Saving the image in the path
         FileUtils.copyFile(image,new File(path));
+    }
+
+    // Hard Wait:
+    // @param: second
+    public static void waitFor(int seconds){
+        try {
+            Thread.sleep(seconds*1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /*
+        Javascript Executor
+        @param webelement
+        Accepts a webelement and scrolls into that element
+        We may need to scroll for capturing the screenshots properly
+        We may need to scroll to specific elements with js executor because some elements may not load properly
+        unless we scroll to that elements
+     */
+    public void scrollIntoViewJS(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    /*
+        scroll the page all the down
+     */
+    public void scrollAllDownByJS(){
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+    }
+
+    /*
+        scroll the page all the way up
+     */
+    public void scrollAllUpByJS(){
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
+    }
+
+    /*
+        click on an element
+        @param WebElement
+        Normally we use element.click() method in selenium
+        When there is an issue with click()-hidden, different UI,...
+        Then we can use javascript click that works better
+     */
+    public void clickByJS(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click()", element);
+    }
+
+    /*
+        @param: WebElement, String
+        Types the string in the WebElement
+        element.sendKeys("text") to type in an input
+        Alternatively we can use js executor to type in an input
+        arguments[0].setAttribute('value','admin123'); -> same as element.sendKeys("admin123")
+
+        Interview Question: What are the selenium methods that you use to type in an input?
+        - sendKeys()
+        - with javascript executor we can use change the value of the input
+     */
+    public void setValueByJS(WebElement element, String text){
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].setAttribute('value','"+text+"')",element);
+    }
+
+    /*
+        param: Id of the element
+     */
+    public void getValueByJS(String idOfElement){
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        String value=js.executeScript("return document.getElementById('"+idOfElement+"').value").toString();
+        System.out.println(value);
+        // How you get the value of an input box?
+        // We can js executor.
+        // How?
+        // I can get the element using js executor, and get the value of the element.
+        // For example, I can get the element by id, and use value attribute to get the value of in an input
+        // I have to do this, cause getText in this case does not return teh text in an input
+    }
+
+    // Changes the changeBackgroundColorByJS of an element.
+    // Params: WebElement element, String color. NOT COMMON
+    public void changeBackgroundColorByJS(WebElement element, String color){
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].style.backgroundColor='"+color+"'",element);
+    }
+
+    // NOT COMMON
+    public void addBorderWithJS(WebElement element, String borderStyle){
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].style.border='"+borderStyle+"'",element);
     }
 }
 
