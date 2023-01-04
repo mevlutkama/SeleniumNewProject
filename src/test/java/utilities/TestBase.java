@@ -61,7 +61,7 @@ public abstract class TestBase {
     }
 
     // Take screenshot of entire page with this reusable method
-    public void takeScreenshotOfPage() throws IOException {
+    public void takeScreenshotOfPage() {
         // 1.Step: Take screenshot using getScreenshotAs() method and takeScreenshot API coming from selenium
         File image = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 
@@ -72,7 +72,11 @@ public abstract class TestBase {
         String path = System.getProperty("user.dir") + "/test-output/Screenshots/" + currentTime + ".png"; // Where we save the image
 
         // 3.Step: Saving the image in the path
-        FileUtils.copyFile(image,new File(path));
+        try {
+            FileUtils.copyFile(image,new File(path));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     // Take screenshot of specific element
@@ -160,7 +164,7 @@ public abstract class TestBase {
         // How?
         // I can get the element using js executor, and get the value of the element.
         // For example, I can get the element by id, and use value attribute to get the value of in an input
-        // I have to do this, cause getText in this case does not return teh text in an input
+        // I have to do this, cause getText in this case does not return the text in an input
     }
 
     // Changes the changeBackgroundColorByJS of an element.
