@@ -27,7 +27,7 @@ public abstract class TestBase {
     public void setUp(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));// 15 seconds wait in case needed
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));// 10 seconds wait in case needed
         driver.manage().window().maximize();
     }
 
