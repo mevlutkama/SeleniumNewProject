@@ -36,7 +36,7 @@ public class Q18 extends TestBase {
 
         // Verify that file is downloaded
         String userHome = System.getProperty("user.home");
-        boolean isExist = Files.exists(Paths.get(userHome + "\\Downloads\\textfile.txt"));
+        boolean isExist = Files.exists(Paths.get(userHome + "/Downloads/textfile.txt"));
         assertTrue(isExist);
     }
 }
