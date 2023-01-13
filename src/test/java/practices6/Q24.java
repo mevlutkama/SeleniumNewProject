@@ -5,7 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import utilities.TestBase;
 
+import java.text.DecimalFormat;
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 
 public class Q24 extends TestBase {
@@ -45,10 +48,34 @@ public class Q24 extends TestBase {
         }
         System.out.println("minYear = " + minYear);
 
+        waitFor(3);
+
+        // Find index of min year
+        int idxOfMinYear = 0;
+        for (int i=0; i<builtYears.size(); i++){
+            if (Integer.parseInt(builtYears.get(i).getText()) == minYear){
+                    idxOfMinYear = i;
+            }
+        }
+
+        System.out.println("idxOfMinYear = " + idxOfMinYear);
+
+        waitFor(3);
+
         // Put all heights into a list
+        List<WebElement> heights = driver.findElements(By.xpath("(//tbody)[2]//td[3]"));
 
+        // Calculate the height to build
+        double heightToBuild = Integer.parseInt(heights.get(idxOfMinYear).getText().replaceAll("\\D",""))*0.05;
 
+        // Assert that build height is 25.45 meters
+        System.out.println("heightToBuild = " + heightToBuild);
+        DecimalFormat decimalFormat = new DecimalFormat("0.00");
+        String formattedHeight = decimalFormat.format(heightToBuild);
+        System.out.println("You will build: " + formattedHeight + " meters");
 
+        waitFor(3);
 
+        assertEquals("25.45", formattedHeight);
     }
 }
