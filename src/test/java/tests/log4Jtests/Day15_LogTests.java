@@ -7,7 +7,6 @@ import org.junit.Test;
 public class Day15_LogTests {
 
     private static Logger logger = LogManager.getLogger(Day15_LogTests.class.getName());
-
     @Test
     public void test1(){
         logger.fatal("FATAL");
