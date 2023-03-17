@@ -141,7 +141,6 @@ public abstract class TestBase {
         element.sendKeys("text") to type in an input
         Alternatively we can use js executor to type in an input
         arguments[0].setAttribute('value','admin123'); -> same as element.sendKeys("admin123")
-
         Interview Question: What are the selenium methods that you use to type in an input?
         - sendKeys()
         - with javascript executor we can use change the value of the input
