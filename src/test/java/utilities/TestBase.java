@@ -233,7 +233,6 @@ public abstract class TestBase {
                     "Timeout waiting for Page Load Request to complete after " + timeout + " seconds");
         }
     }
-
     //======Fluent Wait====
     // params: xpath of the element, max timeout in seconds, polling in seconds
     public static WebElement fluentWait(String xpath, int withtimeout, int pollingEvery) {
