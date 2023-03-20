@@ -19,7 +19,6 @@ import java.time.Duration;
 import java.util.Date;
 import java.util.NoSuchElementException;
 
-
 public abstract class TestBase {
     protected static WebDriver driver;
     @Before
